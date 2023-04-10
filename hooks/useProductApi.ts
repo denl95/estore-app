@@ -140,11 +140,11 @@ export function useProductApi(): [
           `/api/products?${new URLSearchParams({
             ...state.filterOptions,
             ...state.sortOptions,
-          })}`
+          } as any)}`
         )
         dispatch({ type: 'FETCH_PRODUCTS_SUCCESS', payload: data.data })
       } catch (error) {
-        dispatch({ type: 'FETCH_PRODUCTS_ERROR', payload: error })
+        dispatch({ type: 'FETCH_PRODUCTS_ERROR', payload: error as any })
       }
     }
 

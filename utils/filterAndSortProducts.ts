@@ -35,10 +35,10 @@ export function filterAndSortProducts(
     filteredProducts.sort((a, b) => {
       let comparison = 0
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      if (a[field!] > b[field!]) {
+      if ((a[field!] as any) > (b[field!] as any)) {
         comparison = 1
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      } else if (a[field!] < b[field!]) {
+      } else if ((a[field!] as any) < (b[field!] as any)) {
         comparison = -1
       }
       return direction === 'desc' ? comparison * -1 : comparison

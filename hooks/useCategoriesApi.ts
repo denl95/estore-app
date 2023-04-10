@@ -57,7 +57,7 @@ export const useCategoriesApi = (): CategoriesState => {
         const response = await axios.get('/api/categories')
         dispatch({ type: 'FETCH_SUCCESS', payload: response.data })
       } catch (error) {
-        dispatch({ type: 'FETCH_FAILURE', payload: error })
+        dispatch({ type: 'FETCH_FAILURE', payload: error as any })
       }
     }
 
