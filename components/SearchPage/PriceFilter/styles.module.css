@@ -1,0 +1,7 @@
+.inputContainer {
+  display: flex;
+}
+.separator {
+  padding-left: 5px;
+  padding-right: 5px;
+}

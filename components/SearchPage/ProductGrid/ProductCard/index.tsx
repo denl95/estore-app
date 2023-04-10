@@ -1,18 +1,32 @@
-import { Button, Card } from 'react-bootstrap';
-import placeholderImage from './placeholder.png';
+import { Card, ListGroup } from 'react-bootstrap'
+import { Product } from '@/types/product'
 
-export function ProductCard() {
+interface Props {
+  item: Product
+}
+
+const formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+});
+
+export function ProductCard({ item }: Props) {
   return (
-    <Card>
-      <Card.Img variant="top" src={placeholderImage.src} />
+    <Card style={{ height: '100%' }}>
+      <Card.Img
+        style={{ height: '180px' }}
+        variant="top"
+        src={item.thumbnail}
+      />
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Card.Title>{item.title}</Card.Title>
+        <Card.Text>{item.description}</Card.Text>
+        <ListGroup>
+          <ListGroup.Item>Category: {item.category}</ListGroup.Item>
+          <ListGroup.Item>Price: {formatter.format(item.price)}</ListGroup.Item>
+          <ListGroup.Item>Rating: {item.rating}</ListGroup.Item>
+        </ListGroup>
       </Card.Body>
     </Card>
-  );
+  )
 }
