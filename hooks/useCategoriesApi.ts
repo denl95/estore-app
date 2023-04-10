@@ -60,7 +60,6 @@ export const useCategoriesApi = (): CategoriesState => {
         dispatch({ type: 'FETCH_FAILURE', payload: error as any })
       }
     }
-
     fetchCategories()
   }, [])
 
